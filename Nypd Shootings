@@ -1,0 +1,9 @@
+select*
+from `portfolio-project-373720.NYPD.Shootings`
+--
+SELECT string_field_1,string_field_3,string_field_4,string_field_9,string_field_10,string_field_11,string_field_12,string_field_13
+ FROM `portfolio-project-373720.NYPD.Shootings` 
+ --
+ select string_field_1 as Date, string_field_3 as Boro, string_field_4 as Precint, string_field_9 as Perp_Sex, string_field_10 as Perp_Race, string_field_11 as Vic_Age,string_field_12 as Vic_Sex,string_field_13 as Vic_Race
+ from `portfolio-project-373720.NYPD.Shootings`
+ order by string_field_4
