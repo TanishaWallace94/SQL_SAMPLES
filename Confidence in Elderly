@@ -1,0 +1,52 @@
+---getting to know data
+SELECT LocationID,Data_Value_Type,Data_Value
+ FROM `portfolio-project-373720.AlzheimerData.AlzheimersGeneral` 
+ --
+ select Sample_Size
+ from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+--
+select Question, Response
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+--
+select Datasource, Class, Topic
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+--
+select Geolocation, High_Confidence_Limit,Low_Confidence_Limit, Data_Value_Alt
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+--
+select Stratification1,Stratification2,Stratification3
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+--
+select StratificationCategory1,StratificationCategory2,StratificationCategory3
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+--
+select StratificationCategoryID1,StratificationCategoryID2,StratificationCategoryID3
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+--
+select Data_Value_Footnote_Symbol,Data_Value_Footnote,Data_Value_Type
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+--
+select LocationAbbr, YearStart,YearEnd
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+
+--- organizing the data 
+select LocationAbbr, YearStart,YearEnd,Stratification1,Stratification2,High_Confidence_Limit,Low_Confidence_Limit,Data_Value
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+--
+select QuestionID,Question,ResponseID,Response,LocationAbbr
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+where Response is not null 
+order by Response
+---responses empty 
+select LocationAbbr,YearStart,YearEnd,Stratification1,Stratification2, Data_Value
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+where Data_Value is not null
+order by Stratification1
+--
+select LocationAbbr, YearStart,YearEnd,Stratification1 as Age,Stratification2 as Race,High_Confidence_Limit,Low_Confidence_Limit
+from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
+where LocationAbbr is not null and High_Confidence_Limit is not null and Low_Confidence_Limit is not null
+order by LocationAbbr
+ -- seeing data value range
+ select min(Data_Value), max(Data_Value)
+ from `portfolio-project-373720.AlzheimerData.AlzheimersGeneral`
