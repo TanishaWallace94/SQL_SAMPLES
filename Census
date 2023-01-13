@@ -1,0 +1,57 @@
+---getting to know data
+SELECT *
+ FROM `portfolio-project-373720.WorldPopulation.Population` 
+ --
+ select Country_Name,Year,Value
+ from `portfolio-project-373720.WorldPopulation.Population`
+ --
+ select *
+ from `portfolio-project-373720.WorldPopulation.PopulationEstimates`
+ --
+ select Region,Year,Population
+ from `portfolio-project-373720.WorldPopulation.PopulationEstimates`
+ --- organizing the data
+ select Country_Name, Year, value as Population
+ from `portfolio-project-373720.WorldPopulation.Population`
+ --
+ select Region,Year,Population
+ from `portfolio-project-373720.WorldPopulation.PopulationEstimates`
+ where Population is not null
+ order by Population desc
+ --
+ select max(Value) as Highest_Population,min(Value)as Lowest_Population, avg(Value) as Average_Population
+ from `portfolio-project-373720.WorldPopulation.Population`
+ --
+ select concat(Country_Code,"-",Region) as New_Region_Code
+ from `portfolio-project-373720.WorldPopulation.PopulationEstimates`
+ --
+select *
+from`portfolio-project-373720.WorldPopulation.Population`
+inner join `portfolio-project-373720.WorldPopulation.PopulationEstimates`
+ on"portfolio-project-373720.WorldPopulation.Population.Year"= "portfolio-project-373720.WorldPopulation.PopulationEstimates.Year"
+--
+select *
+from`portfolio-project-373720.WorldPopulation.Population`
+left outer join `portfolio-project-373720.WorldPopulation.PopulationEstimates`
+ on"portfolio-project-373720.WorldPopulation.Population.Year"= "portfolio-project-373720.WorldPopulation.PopulationEstimates.Year"
+
+--
+select *
+from`portfolio-project-373720.WorldPopulation.Population`
+full outer join `portfolio-project-373720.WorldPopulation.PopulationEstimates`
+ on"portfolio-project-373720.WorldPopulation.Population.Year"= "portfolio-project-373720.WorldPopulation.PopulationEstimates.Year"
+--
+select Country_Name,Year,Value as Population
+from `portfolio-project-373720.WorldPopulation.Population`
+where Country_Name = "United States"
+order by Year
+--
+select Country_Name,Year,Value as Population
+from `portfolio-project-373720.WorldPopulation.Population`
+where Country_Name = "Canada"
+order by Year
+--
+select Country_Name,Year,Value as Population
+from `portfolio-project-373720.WorldPopulation.Population`
+where Country_Name = "Mexico"
+order by Year
