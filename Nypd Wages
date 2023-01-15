@@ -1,0 +1,24 @@
+SELECT *
+ FROM `portfolio-project-373720.NewYork_Wages.NY_Wages` LIMIT 1000
+ ---
+ select Total_Wage,Year,Area,NAICS_Title,Average_Employment
+ from `portfolio-project-373720.NewYork_Wages.NY_Wages`
+
+ ---
+select avg(Total_Wage) as AVG_Wage, max(Total_Wage) As MaxWage,min(Total_Wage) as MinWage
+from `portfolio-project-373720.NewYork_Wages.NY_Wages`
+---
+select *
+from `portfolio-project-373720.NewYork_Wages.NY_Wages`
+where Year >= 2001
+---
+select year,Area,NAICS_Title,(Average_Employment / Establishments) as AvgEmploymentPerEstablishment
+from `portfolio-project-373720.NewYork_Wages.NY_Wages`
+---
+select count(Area),Total_Wage
+from `portfolio-project-373720.NewYork_Wages.NY_Wages`
+group by Total_Wage
+---
+select Area,NAICS_Title,Year,Total_Wage
+from `portfolio-project-373720.NewYork_Wages.NY_Wages`
+order by Total_Wage desc
